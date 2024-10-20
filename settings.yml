@@ -1,0 +1,140 @@
+quick_links:
+  type: objects
+  default:
+    [
+      { "question": "This is a test question 1..." },
+      { "question": "This is a test question 2..." },
+      { "question": "This is a test question 3..." },
+      { "question": "This is a test question 4..." },
+      { "question": "This is a test question 5..." },
+      { "question": "This is a test question 6..." },
+      { "question": "This is a test question 7..." },
+    ]
+  schema:
+    name: "link"
+    identifier: question
+    properties:
+      question:
+        type: string
+        required: true
+show_for_groups:
+  type: list
+  list_type: simple
+  default: ""
+  description: "Enter group names to show to specific groups. (required)"
+aibot_id:
+  type: string
+  default: ""
+  description: "The used AI Bot user ID. (required)"
+aibot_username:
+  type: string
+  default: ""
+  description: "The used AI Bot username. (required)"
+aibot_avatar:
+  type: upload
+  default: ""
+  description: "Upload an image to display for Gilbert avatar. (required)"
+sibebar_aibot_button_postition:
+  type: enum
+  default: sidebar-footer-actions
+  choices:
+    - before-sidebar-sections
+    - after-sidebar-sections
+  description: "Sidebar AI Bot button position in sidebar."
+sibebar_aibot_button_style:
+  type: enum
+  default: btn-primary
+  choices:
+    - btn-default
+  description: "Sidebar AI Bot button style."
+sidebar_aibot_button_border-radius:
+  type: string
+  default: "2em"
+  description: "Add the sidebar AI Bot button border-radius."
+sidebar_aibot_button_before_icon:
+  type: string
+  default: "discourse-sparkles"
+  description: "Add icon before AI Bot sidebar open button."
+aibot_recent_messages_icon:
+  type: string
+  default: "envelope"
+  description: "Add icon after AI Bot recent messages button."
+svg_icons: 
+  default: ""
+  type: "list"
+  list_type: "compact"
+  description: "List of FontAwesome 6 icons used in this theme component"
+modal_background:
+  type: string
+  default: "linear-gradient(90deg, var(--tertiary-hover) 0%, var(--tertiary) 50%)"
+  description: "Add modal background."
+modal_content_wrapper_background:
+  type: string
+  default: "rgba(var(--secondary-rgb), 0.65)"
+  description: "Add modal content wrapper background."
+modal_content_wrapper_border_radius:
+  type: string
+  default: "1.5em"
+  description: "Add modal content wrapper border-radius."
+quick_buttons_style:
+  type: enum
+  default: btn-primary
+  choices:
+    - btn-default
+  description: "Quick buttons style."
+quick_buttons_border_radius:
+  type: string
+  default: "1em"
+  description: "Add quick buttons border-radius."
+mobile_quick_buttons_wrapper_border_radius:
+  type: string
+  default: "1em"
+  description: "Add quick buttons wrapper border-radius on mobile."
+aibot_avatar_spinner_primary_color:
+  type: string
+  default: "var(--tertiary)"
+  description: "Add the primary color for aibot avatar spinner."
+aibot_avatar_spinner_secondary_color:
+  type: string
+  default: "#ffffff"
+  description: "Add the secondary color for aibot avatar spinner."
+aibot_message_border_color:
+  type: string
+  default: "var(--tertiary)"
+  description: "Add the color for the AI Bot modal message."
+textarea_border-radius:
+  type: string
+  default: "1em"
+  description: "Add the modal input textarea border-radius."
+send_button_border_radius:
+  type: string
+  default: "2em"
+  description: "Add the modal send button border-radius."
+recent_messages_button_border_radius:
+  type: string
+  default: "2em"
+  description: "Add the modal recent messages button border-radius."
+recent_messages_button_color:
+  type: string
+  default: "var(--secondary)"
+  description: "Add the modal recent messages button color."
+recent_messages_button_hover_color:
+  type: string
+  default: "var(--tertiary)"
+  description: "Add the modal recent messages button hover color."
+recent_messages_button_hover_background:
+  type: string
+  default: "var(--secondary)"
+  description: "Add the modal recent messages button hover background."
+recent_messages_button_border:
+  type: string
+  default: "2px solid var(--secondary)"
+  description: "Add the modal recent messages button border."
+spinner_loader_border:
+  type: string
+  default: "4px solid rgba(var(--secondary-rgb), 0.3)"
+  description: "Add the modal spinner loader border."
+spinner_loader_border_right_color:
+  type: string
+  default: "var(--secondary)"
+  description: "Add the modal spinner loader border-right-color."

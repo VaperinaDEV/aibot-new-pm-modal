@@ -1,0 +1,367 @@
+.aibot-modal {
+  html.discourse-touch:not(.keyboard-visible) & {
+    .d-modal__header {
+      .d-modal__title {
+        text-align: unset;
+        margin: unset;
+      }
+      .modal-close {
+        display: flex;
+      }
+    }
+    .d-modal__container {
+      box-shadow: none;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .d-modal__title-text {
+    color: var(--secondary);
+  }
+  .d-modal__header {
+    border-bottom: none;
+    .modal-close {
+      .d-icon {
+        color: var(--secondary);
+        .discourse-no-touch & {
+          color: var(--secondary);
+        }
+      }
+    }
+  }
+  
+  .d-modal__container {
+    max-width: 100%;
+    min-width: auto;
+    max-height: 100vh;
+    height: 100%;
+    border-radius: 0;
+    background: #{$modal-background};
+  }
+
+  ~ .d-modal__backdrop {
+    animation: none;
+    background: #{$modal-background};
+  }
+  
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    max-width: 60em;
+    margin: auto;
+    padding: 4em;
+    @media screen and (max-width: 600px) {
+      padding: 2em 1em;
+    }
+    border-radius: #{$modal-content-wrapper-border-radius};
+    background: #{$modal-content-wrapper-background};
+    box-shadow: var(--shadow-card);
+  }
+
+  &__aibot-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 2em;
+    
+    .aibot-avatar {
+      position: relative;
+      align-self: flex-start;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        animation: avatarSpinner 4s infinite ease, rotate-forever 2s infinite linear;
+      }
+      .avatar {
+        width: 4em;
+        height: 4em;
+        border: 2px solid transparent;
+        object-fit: cover;
+      }
+    }
+    
+    .aibot-message {
+      background: var(--secondary);
+      padding: 1em;
+      border-radius: 0.25em 2em 2em 1.5em;
+      @include user-select(none);
+      animation: borderFadeIn 2s ease forwards;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      word-break: break-word;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+  }
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+    max-width: 90dvw;
+    margin-top: 2em;
+    @media screen and (min-width: 600px) {
+      width: 80%;
+      max-width: 46em;
+    }
+
+    #aibot-modal-input {
+      width: 100%;
+      max-height: 200px;
+      margin: 0;
+      resize: none;
+      border-radius: #{$textarea-border-radius};
+      
+      // hides scrollbars, but allows mouse scrolling
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        height: 0;
+      }
+    }
+
+    .ai-bot-button {
+      align-self: end;
+      min-width: 2.5em;
+      min-height: 2.5em;
+      border-radius: #{$send-button-border-radius};
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 1em;
+    .ai-question-button {
+      flex: 30% 0;
+      border-radius: #{$quick-buttons-border-radius};
+    }
+    @media screen and (max-width: 600px) {
+      gap: 0.5em;
+      font-size: var(--font-down-1);
+      padding: 0.5em 0.5em 0;
+      margin-bottom: 0.5em;
+      background: var(--secondary);
+      border-radius: #{$mobile-quick-buttons-wrapper-border-radius};
+      max-height: 8em;
+      overflow-y: auto;
+      // hides scrollbars, but allows mouse scrolling
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        height: 0;
+      }
+      .ai-question-button {
+        flex: calc(50% - 1.5em) 1;
+        border-radius: 1em;
+      }
+      &:after {
+        content: "";
+        @include sticky;
+        width: 100%;
+        height: 2em;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(var(--secondary-rgb), 0),
+          rgba(var(--secondary-rgb), 1)
+        );
+      }
+    }
+  }
+
+  .ai-disclaimer {
+    text-align: center;
+    font-size: var(--font-down-1);
+    color: var(--primary-900);
+    @media screen and (min-width: 600px) {
+      width: 80%;
+      max-width: 46em;
+    }
+  }
+
+  .ai-recent-messages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    .btn {
+      color: #{$recent-messages-button-color};
+      border: #{$recent-messages-button-border};
+      border-radius: #{$recent-messages-button-border-radius};
+      
+      .discourse-no-touch & {
+        &:focus,
+        &:hover,
+        &:active {
+          background: #{$recent-messages-button-hover-background} !important;
+          color: #{$recent-messages-button-hover-color};
+          .d-icon {
+            color: #{$recent-messages-button-hover-color};
+          }
+        }
+      }
+      .discourse-touch & {
+        &:active {
+          background: #{$recent-messages-button-hover-background} !important;
+          color: #{$recent-messages-button-hover-color};
+          .d-icon {
+            color: #{$recent-messages-button-hover-color};
+          }
+        }
+      }
+        
+      .d-icon {
+        color: #{$recent-messages-button-color};
+      }
+    }
+  } 
+}
+
+// Sidebar button
+
+.ai-new-question-button {
+  z-index: 1;
+  margin: 0.25em 0.5em;
+  border-radius: #{$sidebar-aibot-button-border-radius};
+}
+
+.sidebar-footer-wrapper {
+  .sidebar-footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    .ai-new-question-button {
+      font-size: var(--font-down-1);
+      margin: 0 auto 0 0;
+    }
+  }
+}
+
+// Hide share button from PM
+
+body.archetype-private_message {
+  .topic-post {
+    article[data-user-id="#{$aibot-id}"] {
+      nav.post-controls {
+        .actions {
+          button.share {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Loading spinner
+
+.aibot-modal {
+  .aibot-modal__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &.loading {
+      &:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: #{$spinner-loader-border};
+        border-right-color: #{$spinner-loader-border-right-color};
+        border-radius: 50%;
+        animation: rotate-forever 0.75s infinite linear;
+      }
+      .aibot-modal__content-wrapper {
+        pointer-events: none;
+        touch-action: none;
+        animation: fadeOutLoading 1.5s forwards;
+      }
+      
+      ~ .ai-recent-messages {
+        pointer-events: none;
+        touch-action: none;
+        animation: fadeOutLoading 1.5s forwards;
+      }
+    }
+  }
+}
+
+// aibot Topic Avatar Stream Mode
+
+article {
+  &[data-user-id="#{$aibot-id}"] {
+    .topic-avatar {
+      .post-avatar {
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          animation: avatarSpinner 4s ease, rotate-forever 2s linear;
+          animation-iteration-count: 0;
+        }
+        img.avatar {
+          border: 2px solid transparent;
+        }
+      }
+    }
+    &.streaming {
+      .topic-avatar {
+        .post-avatar {
+          &:before {
+            content: "";
+            animation-iteration-count: infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeOutLoading {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes borderFadeIn {
+  0% {
+    box-shadow: inset 0px 0px 0px 0px #{$aibot-message-border-color};
+  }
+  100% {
+    box-shadow: inset -2px 0px 0px 0px #{$aibot-message-border-color};
+  }
+}
+
+@keyframes avatarSpinner {
+  0% {
+    box-shadow: inset 3px 0px 2px 0px #{$aibot-avatar-spinner-secondary-color};
+  }
+  40% {
+    box-shadow: inset 3px 0px 2px 0px #{$aibot-avatar-spinner-primary-color};
+  }
+  60% {
+    box-shadow: inset 3px 0px 2px 0px #{$aibot-avatar-spinner-primary-color};
+  }
+  100% {
+    box-shadow: inset 3px 0px 2px 0px #{$aibot-avatar-spinner-secondary-color};
+  }
+}

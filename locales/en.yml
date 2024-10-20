@@ -1,0 +1,15 @@
+en:
+  theme_metadata:
+    description: ""
+    settings:
+      example_setting: A description of a setting.
+  aibot_modal_title: "AI Bot"
+  aibot_message: "<strong>Hello</strong> :wave: I'm an <strong>AI Bot</strong>. What can I help you today?"
+  input_placeholder: "Ask AI Bot..."
+  input_submit: "Ask away!"
+  input_length: "Your question is too short, a more detailed question will get a better response..."
+  disclaimer:
+    "Generative AI can make mistakes, please flag them to help improve our
+    engine. The Team regularly reviews conversations with AI Bot."
+  new_question: "Ask AI Bot"
+  recent_messages: "Recent Conversations with AI Bot"
