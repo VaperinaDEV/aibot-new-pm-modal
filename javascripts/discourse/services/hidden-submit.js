@@ -41,6 +41,8 @@ export default class HiddenSubmit extends Service {
       topicTitle: I18n.t("discourse_ai.ai_bot.default_pm_prefix"),
       topicBody: this.inputValue,
       archetypeId: "private_message",
+      warningsDisabled: true,
+      skipDraftCheck: true,
       disableDrafts: true,
     });
 

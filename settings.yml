@@ -17,6 +17,14 @@ quick_links:
       question:
         type: string
         required: true
+max_quick_links_desktop:
+  type: integer
+  default: 5
+  description: "Maximum number of quick links appears on desktop"
+max_quick_links_mobile:
+  type: integer
+  default: 3
+  description: "Maximum number of quick links appears on mobile"
 show_for_groups:
   type: list
   list_type: simple
