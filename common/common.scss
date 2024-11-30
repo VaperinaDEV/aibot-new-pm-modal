@@ -52,6 +52,7 @@
     align-items: center;
     justify-content: center;
     max-width: 60em;
+    width: 100%;
     margin: auto;
     padding: 4em;
     @media screen and (max-width: 600px) {
@@ -84,6 +85,10 @@
         height: 4em;
         border: 2px solid transparent;
         object-fit: cover;
+        @media screen and (max-width: 600px) {
+          width: 3em;
+          height: 3em;
+        }
       }
     }
     
@@ -99,6 +104,9 @@
       word-break: break-word;
       -webkit-hyphens: auto;
       hyphens: auto;
+      @media screen and (max-width: 600px) {
+        font-size: var(--font-down-1);
+      }
     }
   }
 
