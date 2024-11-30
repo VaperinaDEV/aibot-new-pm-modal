@@ -19,9 +19,9 @@ export default class QuickButtons extends Component {
     const shuffledLinks = settings.quick_links.slice().sort(() => Math.random() - 0.5);
 
     if (this.site.mobileView) {
-      return shuffledLinks.slice(0, settings.max_quick_links_desktop);
-    } else {
       return shuffledLinks.slice(0, settings.max_quick_links_mobile);
+    } else {
+      return shuffledLinks.slice(0, settings.max_quick_links_desktop);
     }
   }
 
