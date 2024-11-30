@@ -120,6 +120,11 @@
       margin: 0;
       resize: none;
       border-radius: #{$textarea-border-radius};
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px var(--tertiary);
+      }
       
       // hides scrollbars, but allows mouse scrolling
       scrollbar-width: none;
