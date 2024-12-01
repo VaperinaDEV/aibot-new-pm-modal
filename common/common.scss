@@ -55,7 +55,7 @@
     width: 100%;
     margin: auto;
     padding: 4em;
-    @media screen and (max-width: 600px) {
+    @include breakpoint(mobile-extra-large) {
       padding: 2em 1em;
     }
     border-radius: #{$modal-content-wrapper-border-radius};
@@ -85,7 +85,7 @@
         height: 4em;
         border: 2px solid transparent;
         object-fit: cover;
-        @media screen and (max-width: 600px) {
+        @include breakpoint(mobile-small) {
           width: 3em;
           height: 3em;
         }
@@ -104,7 +104,7 @@
       word-break: break-word;
       -webkit-hyphens: auto;
       hyphens: auto;
-      @media screen and (max-width: 600px) {
+      @include breakpoint(mobile-small) {
         font-size: var(--font-down-1);
       }
     }
@@ -117,7 +117,7 @@
     width: 100%;
     max-width: 90dvw;
     margin-top: 1em;
-    @media screen and (min-width: 600px) {
+    @include breakpoint(mobile-extra-large, min-width) {
       width: 80%;
       max-width: 46em;
     }
@@ -159,13 +159,13 @@
       flex: 1 0 30%;
       border-radius: #{$quick-buttons-border-radius};
     }
-    @media screen and (max-width: 600px) {
+    @include breakpoint(mobile-extra-large) {
       gap: 0.5em;
-      font-size: var(--font-down-1);
       margin-bottom: 0.5em;
 
       .ai-question-button {
         flex: 1 0 calc(50% - 1.5em);
+        font-size: var(--font-down-1);
       }
     }
   }
@@ -174,7 +174,7 @@
     text-align: center;
     font-size: var(--font-down-1);
     color: var(--primary-900);
-    @media screen and (min-width: 600px) {
+    @include breakpoint(mobile-extra-large, min-width) {
       width: 80%;
       max-width: 46em;
     }
@@ -185,13 +185,14 @@
     align-items: center;
     justify-content: center;
     margin-top: 1em;
-    @media screen and (max-width: 600px) {
-      font-size: var(--font-down-1);
-    }
+    
     .btn {
       color: #{$recent-messages-button-color};
       border: #{$recent-messages-button-border};
       border-radius: #{$recent-messages-button-border-radius};
+      @include breakpoint(mobile-extra-large) {
+        font-size: var(--font-down-1);
+      }
       
       .discourse-no-touch & {
         &:focus,
