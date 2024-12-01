@@ -185,6 +185,9 @@
     align-items: center;
     justify-content: center;
     margin-top: 1em;
+    @media screen and (max-width: 600px) {
+      font-size: var(--font-down-1);
+    }
     .btn {
       color: #{$recent-messages-button-color};
       border: #{$recent-messages-button-border};
