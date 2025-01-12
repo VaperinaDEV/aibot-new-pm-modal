@@ -3,6 +3,7 @@ import SidebarAiBotButton from "../components/sidebar-aibot-button";
 
 export default apiInitializer("1.8.0", (api) => {
   const currentUser = api.getCurrentUser();
+  const userCanSendPm = currentUser?.can_send_private_messages;
   let showUserGroup = false;
 
   if (currentUser && currentUser.groups){
@@ -13,7 +14,7 @@ export default apiInitializer("1.8.0", (api) => {
     }
   }
 
-  if (!showUserGroup) {
+  if (!userCanSendPm || !showUserGroup) {
     return;
   }
   
